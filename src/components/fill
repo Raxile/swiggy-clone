@@ -1,0 +1,19 @@
+   <h1 className='mt-4 ml-6 text-3xl font-serif font-bold'>Cart</h1>
+      <p className='ml-7 text-slate-500'>2 items</p>
+      <div className="item flex ml-5 mt-5">
+       <div className="name w-10 h-10">paneer </div>
+       <div className="button-bar mx-3 ml-20 mt-1">
+       <button className={` w-6 bg-lime-50 hover:bg-lime-100 rounded-sm border border-lime-300 hover:border-lime-400`} ><span className='text-lime-700'>-</span></button>
+            <span className=' px-3 mx-0.5 py-0.5 border border-lime-300   bg-lime-100 text-lime-700' >0</span>
+            <button className={` w-6 bg-lime-50 hover:bg-lime-100 rounded-sm border border-lime-300 hover:border-lime-400`} > <span className='text-lime-700'>+</span></button>
+       </div>
+       <div className="price   mt-1 ">10000</div>
+      </div>
+      <div className=" last-price flex mt-10 ml-3">
+        <div className="Description">
+          <p className=' font-bold text-slate-700 font-serif'>Subtotal</p>
+          <p className='text-slate-500 font-serif'>Extra charges may apply</p>
+        </div>
+        <div className="price ml-12  font-serif text-slate-800 ">10000</div>
+      </div>
+      <button className='h-14 bg-lime-600 w-72 ml-3 mt-5 text-white '>CHECKOUT</button>
