@@ -4,12 +4,20 @@ import help from '../assets/help.png'
 import signin from '../assets/account.png'
 import cart from '../assets/cart.png'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+  const navigate=useNavigate();
+  const handleCart = ()=>{
+    navigate("/checkout");
+  }
+  const handleHome =()=>{
+    navigate("/")
+  }
   return (
     <div className='flex justify-between my-4 '>
         <div className="left flex space-x-4 ml-12">
-              <div className="logo w-8 mx-2">
+              <div className="logo w-8 mx-2 " onClick={()=>handleHome()}>
                 <img src={logo} alt="" />
               </div>
               <div className="add mt-4 mx-4 font-medium">
@@ -18,7 +26,7 @@ const Navbar = () => {
                 </div>
         </div>
       <div className="right flex space-x-24 mr-14 mt-4 text-[#3D4152]">
-        <div className="search flex">
+        <div className="search flex ">
             <img className='w-4 mx-2' src={search} alt="" />
              <span className='hover:text-orange-500'>Search</span>
              </div>
@@ -31,7 +39,7 @@ const Navbar = () => {
             <img className='w-6 h-6 mx-2' src={signin} alt="" />
             <span>Sign In</span>
             </div>
-        <div className="cart flex hover:text-orange-500">
+        <div className="cart flex hover:text-orange-500" onClick={()=>handleCart()}>
             <img className='w-6 h-6 mx-2' src={cart} alt="" />
             <span>Cart</span>
              </div>

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {  useNavigate } from 'react-router-dom';
 import { addToCart, decreaseCart, getTotals } from '../features/cartSlice';
+import { foodBuy } from '../features/resturantsSlice';
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -16,6 +17,7 @@ const Cart = () => {
   }
   const handleIncreaseCart = (cartItem) =>{
     dispatch(addToCart(cartItem))
+    dispatch(foodBuy(cartItem))
   }
   const handleCheckout = () =>{
     navigate("/checkout");
@@ -46,6 +48,7 @@ const Cart = () => {
               <button className={` w-6 bg-lime-50 hover:bg-lime-100 rounded-sm border border-lime-300 hover:border-lime-400`} onClick={()=>handleIncreaseCart(cartItem)}> <span className='text-lime-700'>+</span></button>
             </div>
             <div className="price   mt-1 ">{cartItem.cartQuantity*cartItem.price}</div>
+            
           </div>
           ))}
         

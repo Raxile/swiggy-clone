@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/cartSlice';
+import { foodBuy } from '../features/resturantsSlice';
 
 const FoodCard = (props) => {
   const { foods } = props
@@ -12,6 +13,8 @@ const FoodCard = (props) => {
   const handleclick = (foods) => {
  
     dispatch(addToCart(foods))
+    dispatch(foodBuy(foods))
+
   }
  
  

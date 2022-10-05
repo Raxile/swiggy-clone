@@ -4,6 +4,7 @@ import axios from "axios"
 
 const initialState = {
     item :[],
+    foodbuys : localStorage.getItem("foodbuy") ? JSON.parse(localStorage.getItem("foodbuy")) : [] ,
     status : null
   
 } 
@@ -21,7 +22,26 @@ export const resturantsFetch = createAsyncThunk(
 const resturantsSlice = createSlice({
     name: "resturants",
     initialState,
-    reducers:{},
+    reducers:{
+        foodBuy(state,action)
+        { 
+            state.item.findIndex(
+                // eslint-disable-next-line
+                (resturantId) => {
+                    if( resturantId._id === action.payload.resturant)
+                    {
+                        state.foodbuys=[]
+                        state.foodbuys.push(resturantId)
+                    }
+                }
+                )
+                
+                
+                
+                localStorage.setItem("foodbuy",JSON.stringify(state.foodbuys))
+                
+            }
+    },
     extraReducers:{
        [resturantsFetch.pending]: (state,action) =>{
             state.status = "pending"
@@ -36,5 +56,7 @@ const resturantsSlice = createSlice({
     }
 
 }); 
+
+export const { foodBuy } = resturantsSlice.actions;
 
 export default resturantsSlice.reducer

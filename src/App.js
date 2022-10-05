@@ -8,7 +8,8 @@ import {
 } from "react-router-dom";
 import Resturant from './components/Resturant';
 import Food from './components/Food';
-import Checkout from './components/Checkout';
+import Checkout from './Checkout/pages/Checkout';
+
 
 
 
