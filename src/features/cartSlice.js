@@ -15,14 +15,23 @@ const cartSlice =  createSlice ({
              const itemIndex = state.cartItem.findIndex(
                 (item)=> item._id === action.payload._id 
              );
-             if (itemIndex>=0){
-                state.cartItem[itemIndex].cartQuantity +=1;
-             }
-             else{
-                 const tempProduct = {...action.payload , cartQuantity: 1 }
-                 state.cartItem.push(tempProduct)
-                
-             }
+             const resturantIndex = state.cartItem.findIndex(
+                 (resturantId) => resturantId.resturant === action.payload.resturant
+             );
+             console.log()
+              if(resturantIndex>=0 || state.cartTotalQuantity === 0){
+                    if (itemIndex>=0){
+                        state.cartItem[itemIndex].cartQuantity +=1;
+                    }
+                    else{
+                        const tempProduct = {...action.payload , cartQuantity: 1 }
+                        state.cartItem.push(tempProduct)
+                        
+                    }
+                } 
+                else {
+                    window.alert(" Your cart contains items from other restaurant. Would you like to reset your cart for adding items from this restaurant? ")
+                }  
              
              localStorage.setItem("cartItem",JSON.stringify(state.cartItem))
 

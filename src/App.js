@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Resturant from './components/Resturant';
 import Food from './components/Food';
+import Checkout from './components/Checkout';
 
 
 
@@ -23,6 +24,7 @@ const App = () => {
         <Resturant/>
          </>}/> 
         <Route exact path={`/resturant/:id`} element={<Food/>} />
+         <Route exact path={`/checkout`} element={<Checkout />} />
         </Routes>
     </div>
     </Router>

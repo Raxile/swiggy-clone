@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import {  useNavigate } from 'react-router-dom';
 import { addToCart, decreaseCart, getTotals } from '../features/cartSlice';
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   useEffect(()=>{
     dispatch(getTotals())
   },[cart,dispatch])
@@ -15,6 +16,10 @@ const Cart = () => {
   }
   const handleIncreaseCart = (cartItem) =>{
     dispatch(addToCart(cartItem))
+  }
+  const handleCheckout = () =>{
+    navigate("/checkout");
+    
   }
 
   return (
@@ -54,7 +59,7 @@ const Cart = () => {
             </div>
             <div className="price ml-12  font-serif text-slate-800 ">&#x20B9;{cart.cartTotalAmount}</div>
           </div>
-          <button className='h-14 bg-lime-600 w-72 ml-3 mt-5 text-white '>CHECKOUT</button>
+          <button className='h-14 bg-lime-600 w-72 ml-3 mt-5 text-white ' onClick={()=> handleCheckout()}>CHECKOUT</button>
         </>
       )}
 
