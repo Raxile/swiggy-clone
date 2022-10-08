@@ -41,8 +41,8 @@ const Cart = () => {
 
           {cart.cartItem?.map(cartItem => (
              <div className="item flex ml-5 mt-5" key={cartItem._id}>
-            <div className="name w-16 h-auto">{cartItem.name}</div>
-            <div className="button-bar mx-3 ml-24 mt-1">
+            <div className="name w-[8rem] text-xs h-auto">{cartItem.name}</div>
+            <div className="button-bar mx-3 ml-[2rem] mt-1">
               <button className={` w-6 bg-lime-50 hover:bg-lime-100 rounded-sm border border-lime-300 hover:border-lime-400`}  onClick={()=>handleDecreaseCart(cartItem)} ><span className='text-lime-700'>-</span></button>
               <span className=' px-3 mx-0.5 py-0.5 border border-lime-300   bg-lime-100 text-lime-700' >{cartItem.cartQuantity}</span>
               <button className={` w-6 bg-lime-50 hover:bg-lime-100 rounded-sm border border-lime-300 hover:border-lime-400`} onClick={()=>handleIncreaseCart(cartItem)}> <span className='text-lime-700'>+</span></button>

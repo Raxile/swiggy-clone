@@ -1,5 +1,7 @@
 import React  from 'react'
 import {  useSelector } from 'react-redux';
+import SideCartBill from './SideCartBill';
+import SideCartResturant from './SideCartResturant';
 
 const SideCart = (props) => {
     const restaurant = useSelector((state) => state.resturants.foodbuys);
@@ -7,11 +9,9 @@ const SideCart = (props) => {
   return (
     <div className={`${props.className}`}>
       {restaurant?.map((foodBuyItem)=>(
-        <>
-        <img src={foodBuyItem.img} alt={foodBuyItem.name} />
-        <p>{foodBuyItem.name}</p>
-        </>
+        <SideCartResturant foodBuyItem={foodBuyItem} key={foodBuyItem._id}/>
       ))}
+         <SideCartBill />
     </div>
   )
 }
