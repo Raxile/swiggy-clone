@@ -2,33 +2,46 @@ const mongoose = require('mongoose');
 const { Schema } =  mongoose;
 
 const BillSchema = new Schema({ 
-    name:{
+    customerName:{
         type: String
     },
     address:{
         type: String
     },
-    resturantID:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'resturant'
-    },
-    foodItems: [{
+    cartItems: [{
         'type':{type: Object},
-         'foodId':{
+         '_id':{
             type: mongoose.Schema.Types.ObjectId,
             ref:'food'
          },
-         'quantity':{
+         'img':{
+            type: String
+         },
+         'description':{
+            type: String
+         },
+         'name':{
+            type: String
+         },
+         'price':{
+            type: String
+         },
+         'resturant':{
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'resturant'
+         },
+         
+         'cartQuantity':{
             type:String
          }
 
     }] ,
 
-    totalQuantity:{
+    cartTotalQuantity:{
         type: String,
         required: true,
     },
-    totalAmount:{
+    cartTotalAmount:{
         type: String,
         required: true
     }

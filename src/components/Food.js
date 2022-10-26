@@ -6,7 +6,7 @@ import SideTitleBar from './SideTitleBar'
 
 const Food = () => {
   const oneResturant = useSelector((state) => state.oneResturant)
-  console.log(oneResturant)
+  
   return (
     <div>
       {oneResturant.resturantItem.map((restaurantItem)=>(
